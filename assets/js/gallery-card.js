@@ -8,7 +8,7 @@
  * the display matches what is seen in the editor.
  */
 
- (function (window, document) {
+(function (window, document) {
     var resizeImagesInGalleries = function resizeImagesInGalleries() {
         var images = document.querySelectorAll('.kg-gallery-image img');
         images.forEach(function (image) {

@@ -1,38 +1,69 @@
-# (Theme edited by ProgSoc)
-
 # Casper
 
-The  dark mode enabled version of default theme for [Ghost](http://github.com/tryghost/ghost/). If you're just looking to download the original version, head over to the [releases](https://github.com/TryGhost/Casper/releases) page.
+The default theme for [Ghost](http://github.com/tryghost/ghost/). This is the latest development version of Casper! If you're just looking to download the latest release, head over to the [releases](https://github.com/TryGhost/Casper/releases) page.
 
 &nbsp;
 
-![Home](https://user-images.githubusercontent.com/278469/55558098-f697a900-5708-11e9-8e80-2abcc9da2977.jpg)
-![Author](https://user-images.githubusercontent.com/278469/55558126-057e5b80-5709-11e9-840c-4ccb8fdcd5d0.jpg)
-![Page](https://user-images.githubusercontent.com/278469/55558127-0616f200-5709-11e9-89aa-ad9cd3b7fdb2.jpg)
-![Post](https://user-images.githubusercontent.com/278469/55558128-0616f200-5709-11e9-9db6-9930228854d0.jpg)
-![Tag](https://user-images.githubusercontent.com/278469/55558130-0616f200-5709-11e9-9c38-78a72995401c.jpg)
+![screenshot-desktop](https://user-images.githubusercontent.com/353959/66987533-40eae100-f0c1-11e9-822e-cbaf38fb8e3f.png)
 
 &nbsp;
 
-# What do you have to do?
+# First time using a Ghost theme?
 
-To enable the dark mode on your Ghost site, download the latest release of this theme and copy and paste the following code into `Code injection -> Site Footer` in Ghost Admin panel.
+Ghost uses a simple templating language called [Handlebars](http://handlebarsjs.com/) for its themes.
 
-```html
-<script>
-    document.onkeyup = function(e) {
-        if (e.altKey && e.which == 78) {
-            localStorage.setItem('mode', (localStorage.getItem('mode') || 'dark') === 'dark' ? 'light' : 'dark');
-            localStorage.getItem('mode') === 'dark' ? document.querySelector('body').classList.add('dark') : document.querySelector('body').classList.remove('dark');
-        }
-    };
-</script>
+This theme has lots of code comments to help explain what's going on just by reading the code. Once you feel comfortable with how everything works, we also have full [theme API documentation](https://ghost.org/docs/themes/) which explains every possible Handlebars helper and template.
+
+**The main files are:**
+
+- `default.hbs` - The parent template file, which includes your global header/footer
+- `index.hbs` - The main template to generate a list of posts, usually the home page
+- `post.hbs` - The template used to render individual posts
+- `page.hbs` - Used for individual pages
+- `tag.hbs` - Used for tag archives, eg. "all posts tagged with `news`"
+- `author.hbs` - Used for author archives, eg. "all posts written by Jamie"
+
+One neat trick is that you can also create custom one-off templates by adding the slug of a page to a template file. For example:
+
+- `page-about.hbs` - Custom template for an `/about/` page
+- `tag-news.hbs` - Custom template for `/tag/news/` archive
+- `author-ali.hbs` - Custom template for `/author/ali/` archive
+
+
+# Development
+
+Casper styles are compiled using Gulp/PostCSS to polyfill future CSS spec. You'll need [Node](https://nodejs.org/), [Yarn](https://yarnpkg.com/) and [Gulp](https://gulpjs.com) installed globally. After that, from the theme's root directory:
+
+```bash
+# install dependencies
+yarn install
+
+# run development server
+yarn dev
 ```
 
-The default shortcut key combination is set to `ALT + N` and you can set your preferred key by replacing `78` in above code.
-* To get the prefered key code: https://keycode.info/
+Now you can edit `/assets/css/` files, which will be compiled to `/assets/built/` automatically.
+
+The `zip` Gulp task packages the theme files into `dist/<theme-name>.zip`, which you can then upload to your site.
+
+```bash
+# create .zip file
+yarn zip
+```
+
+# PostCSS Features Used
+
+- Autoprefixer - Don't worry about writing browser prefixes of any kind, it's all done automatically with support for the latest 2 major versions of every browser.
+- [Color Mod](https://github.com/jonathantneal/postcss-color-mod-function)
+
+
+# SVG Icons
+
+Casper uses inline SVG icons, included via Handlebars partials. You can find all icons inside `/partials/icons`. To use an icon just include the name of the relevant file, eg. To include the SVG icon in `/partials/icons/rss.hbs` - use `{{> "icons/rss"}}`.
+
+You can add your own SVG icons in the same manner.
 
 
 # Copyright & License
 
-Copyright (c) 2013-2019 Ghost Foundation - Released under the [MIT license](LICENSE).
+Copyright (c) 2013-2021 Ghost Foundation - Released under the [MIT license](LICENSE).
