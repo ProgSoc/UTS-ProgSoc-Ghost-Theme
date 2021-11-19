@@ -12,12 +12,21 @@ Keep this template as lightweight as you can!
 
 --}}
 
+<style>
+    .error-content {
+        /*background: url("{{asset "img/dance-moves.gif"}}");*/
+        background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url("{{asset "img/dance-moves.gif"}}");
+        background-size: cover;
+    }
+</style>
+
 <section class="outer error-content">
     <div class="inner">
         <section class="error-message">
-            <h1 class="error-code">{{statusCode}}</h1>
-            <p class="error-description">{{message}}</p>
-            <a class="error-link" href="{{@site.url}}">Go to the front page →</a>
+            <h1 class="error-code" style="color: white;">{{statusCode}}</h1>
+            <p class="error-description" style="color: white; font-weight: 900;">{{message}}</p>
+            <p style="padding-top: 20px; color: white;"><!--Looks like our programming skills aren't up to scratch. Don't worry though, we're never giving up.-->Looks like we've let you down :(</p>
+            <a class="error-link" style="color: white; padding-top: 20px;" href="{{@site.url}}">Go to the front page →</a>
         </section>
     </div>
 </section>

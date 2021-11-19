@@ -1,0 +1,243 @@
+{{!< default}}
+
+{{!-- The tag above means: insert everything in this file
+into the {body} tag of the default.hbs template --}}
+
+{{#page}}
+
+<style>
+/*
+    .hp-header {
+        padding: 10vw;
+        padding-bottom: 7vw;
+    }
+
+    .hp-header * {
+        opacity: 1!important;
+        text-align: center;
+        color: white;
+    }
+    .hp-header .hero-text {
+        font-size: 12vw;
+        font-weight: 900;
+        color: white;
+        text-shadow: 0px 0px 100px black;
+    }
+*/
+    .hp-header {
+        background-image: url("{{asset "img/richard-horvath-RAZU_R66vUc-unsplash.jpg"}}");
+        background-size: cover;
+    }
+
+
+    .cta-button {
+        background: white!important;
+        color: black!important;
+    }
+
+  @media only screen and (min-width: 900px) {
+
+        .cta-button {
+            background-color: rgba(255,255,255,0.2)!important; 
+            color: white!important;
+        }
+
+
+    }
+/*
+    .cta-button {
+        background: white!important;
+        color: black!important;
+    }
+
+    .hp-content {
+        padding: 10%;
+    }
+
+    .header-detail {
+        padding-bottom: 30px;
+    }
+
+    .header-detail p {
+        text-align: left;
+        line-height: 40px;
+        font-size: 2em;
+        font-weight: 700;
+    }
+
+    .image-wrapper {
+        position: relative;
+        padding-bottom: 75%;
+    }
+
+    .image-wrapper img {
+    position: absolute;
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    }
+
+    .hpp-row {
+        display: grid;
+        grid-gap: 20px;
+    }
+
+    .hp-posts {
+        padding-top: 30px;
+    }
+
+    .hp-membership {
+        padding-top: 30px;
+    }
+
+    @media only screen and (min-width: 900px) {
+
+        #gh-head {
+            background: none!important;
+        }
+
+        .cta-button {
+            background-color: rgba(255,255,255,0.2)!important; 
+            color: white!important;
+        }
+
+        .header-detail {
+            padding-bottom: 5%;
+        }
+
+        .hp-header {
+            height: 100vh;
+        }
+
+    }
+
+
+    @media only screen and (max-width: 900px) {
+
+        .hp-header {
+            padding-top: 40vw;
+            padding-bottom: 20vw;
+        }
+
+        .header-detail p {
+            text-align: left;
+        }
+
+        .hpp-row {
+            display: block;
+        }
+
+    }*/
+</style>
+{{!-- Everything inside the #post block pulls data from the page --}}
+
+<main id="site-main" class="site-main">
+
+    <div class="hp-header">
+        <!--<h1 class="hero-text">&lt;HELLO <br>WORLD/&gt;</h1>-->
+        <h1 class="hero-text">&#123; HELLO <br>WORLD&#59; &#125;</h1>
+        <div class="cta">
+            <a class="hp-cta-button subscribe-button" href="https://activateuts.com.au/clubs/programmers-society-progsoc" style="background-color: rgba(255,255,255,0.2); color: white; padding: 14px 19px 14px 19px; border-radius: 360px; font-weight: 700; opacity: 100%;">Become a Member</a>
+        </div>
+
+    </div>
+    <div class="hp-content">
+        <div class="header-detail">
+            <div class="post-card-primary-tag" style="font-weight: 700; font-size: 1em; padding-bottom: 10px;">About</div>
+            <p>ProgSoc is a club for all programmers who want to find fellow coders and learn more about programming! Showcase your skills and get help from other programmers, or just hang out and have fun, even if you're a beginner! We're welcome to all beginners, and are happy to help you learn more about the field, as well as helping out with different programming subjects, or just generally talking about the industry!</p>
+        </div>
+        <div class="hp-about-cta">
+            <!--<a class="hp-cta-button subscribe-button" href="https://activateuts.com.au" style="background-color: rgba(255,255,255,0.2); color: black; padding: 14px 19px 14px 19px; border-radius: 360px; font-weight: 700; opacity: 100%;">More Posts</a>-->
+            <a class="hp-content-cta hp-cta-button subscribe-button" href="about" style="padding: 14px 19px 14px 19px; border-radius: 360px; font-weight: 700; opacity: 100%;">Learn More</a>
+        </div>
+        <div class="photo-grid container" style="width: 100%; padding-bottom: 50px;">
+            <div class="hpp-row">
+                <div class="hpp-col" style="grid-column-start: 1; grid-column-end: 2; padding-bottom: 20px;">
+                    <div class="image-wrapper"><img src="{{asset "img/progsoc/prog1.jpg"}}" alt=""></div>
+                </div>
+                <div class="hpp-col" style="grid-column-start: 2; grid-column-end: 3; padding-bottom: 20px;">
+                    <div class="image-wrapper"><img src="{{asset "img/progsoc/prog2.jpg"}}" alt=""></div>
+                </div>
+                <div class="hpp-col" style="grid-column-start: 3; grid-column-end: 4; padding-bottom: 20px;">
+                    <div class="image-wrapper"><img src="{{asset "img/progsoc/prog3.jpg"}}" alt=""></div>
+                </div>
+            </div>
+        </div>
+
+        <!--<div class="hp-events">
+            <div class="post-card-primary-tag" style="font-weight: 700; font-size: 1em; padding-bottom: 10px;">Here's What's Happening</div>
+            <h1>Upcoming Events</h1>
+        </div>-->
+        <div class="hp-posts">
+            <div class="post-card-primary-tag" style="font-weight: 700; font-size: 1em; padding-bottom: 10px;">From the Blog</div>
+            <h1>Latest Posts</h1>
+            <div class="inner posts">
+                <div class="post-feed">
+                    {{#get "posts" limit="3"}}
+                        {{#foreach posts}}
+                            {{!-- The tag below includes the markup for each post - partials/post-card.hbs --}}
+                            {{> "post-card"}}
+                        {{/foreach}}
+                    {{/get}}
+                </div>
+            </div>
+            <div class="hp-blog-cta">
+                <!--<a class="hp-cta-button subscribe-button" href="https://activateuts.com.au" style="background-color: rgba(255,255,255,0.2); color: black; padding: 14px 19px 14px 19px; border-radius: 360px; font-weight: 700; opacity: 100%;">More Posts</a>-->
+                <a class="hp-content-cta hp-cta-button subscribe-button" href="blog" style="padding: 14px 19px 14px 19px; border-radius: 360px; font-weight: 700; opacity: 100%;">More Posts</a>
+            </div>
+        </div>
+        <div class="hp-membership">
+            <div class="post-card-primary-tag" style="font-weight: 700; font-size: 1em; padding-bottom: 10px;">Why you should join us</div>
+            <h1>Membership</h1>
+            <div class="hp-membership-inner" style="display: grid;">
+                <h6 style="grid-column-start: 1; grid-column-end: 2;">&#10004; &nbsp; Discounted Event Tickets</h6>
+                <h6 style="grid-column-start: 2; grid-column-end: 3; ">&#10004; &nbsp; Member Newsletter</h6>
+                <h6 style="grid-column-start: 3; grid-column-end: 4; ">&#10004; &nbsp; Free/Discounted Merch</h6>
+                <h6 style="grid-column-start: 1; grid-column-end: 2; ">&#10004; &nbsp; Support Our Community</h6>
+                <h6 style="grid-column-start: 2; grid-column-end: 3; ">&#10004; &nbsp; Access to Exclusive Resources</h6>
+            </div>
+            <div class="hp-member-cta">
+                <!--<a class="hp-cta-button subscribe-button" href="https://activateuts.com.au" style="background-color: rgba(255,255,255,0.2); color: black; padding: 14px 19px 14px 19px; border-radius: 360px; font-weight: 700; opacity: 100%;">More Posts</a>-->
+                <a class="hp-content-cta hp-cta-button subscribe-button" href="https://activateuts.com.au/clubs/programmers-society-progsoc" style="padding: 14px 19px 14px 19px; border-radius: 360px; font-weight: 700; opacity: 100%;">Become a Member</a>
+            </div>
+        </div>
+    </div>
+
+
+    
+    <!--<article class="article {{post_class}}">
+
+        <header class="article-header gh-canvas">
+            {{#if feature_image}}
+            <figure class="article-image">
+
+                <img
+                    srcset="{{img_url feature_image size="s"}} 300w,
+                            {{img_url feature_image size="m"}} 600w,
+                            {{img_url feature_image size="l"}} 1000w,
+                            {{img_url feature_image size="xl"}} 2000w"
+                    sizes="(min-width: 1400px) 1400px, 92vw"
+                    src="{{img_url feature_image size="xl"}}"
+                    alt="{{#if feature_image_alt}}{{feature_image_alt}}{{else}}{{title}}{{/if}}"
+                />
+                {{#if feature_image_caption}}
+                    <figcaption>{{feature_image_caption}}</figcaption>
+                {{/if}}
+            </figure>
+            {{/if}}
+        </header>
+
+        <section class="gh-content gh-canvas">
+
+            <h1 class="article-title">{{title}}</h1>
+
+            {{content}}
+
+
+        </section>
+
+    </article>-->
+</main>
+
+
+{{/page}}
