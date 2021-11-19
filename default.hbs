@@ -13,6 +13,8 @@
     this will take care of caching and cache-busting automatically --}}
     <link rel="stylesheet" type="text/css" href="{{asset "built/screen.css"}}" />
     <link rel="stylesheet" type="text/css" href="{{asset "built/custom.css"}}" />
+    <link rel="stylesheet" type="text/css" href="{{asset "built/glide.core.min.css"}}" />
+    <link rel="stylesheet" type="text/css" href="{{asset "built/glide.theme.min.css"}}" />
 
     {{!-- This tag outputs all your advanced SEO meta, structured data, and other important settings,
     it should always be the last tag before the closing head tag --}}
@@ -110,7 +112,17 @@ $(document).ready(function () {
     $(".gh-content").fitVids();
 });
 </script>
+<script src="https://cdn.jsdelivr.net/npm/@glidejs/glide"></script>
+<script>
+new Glide('.glide', {
+  type: 'carousel',
+  startAt: 0,
+  perView: 1,
+  animationDuration: 2000,
+  autoplay: 5000
+}).mount()
 
+</script>
 {{!-- Ghost outputs required functional scripts with this tag - it should always be the last thing before the closing body tag --}}
 {{ghost_foot}}
 

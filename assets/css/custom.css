@@ -90,7 +90,7 @@ ProgSoc Custom CSS - Dylan 2021
 
     .image-wrapper {
         position: relative;
-        padding-bottom: 75%;
+        padding-bottom: 100%;
     }
 
     .image-wrapper img {
@@ -149,14 +149,24 @@ ProgSoc Custom CSS - Dylan 2021
             background: none!important;
         }
 
-    
-
         .header-detail {
             padding-bottom: 5%;
         }
 
         .hp-header {
             height: 100vh;
+        }
+
+        .hp-static-photos {
+            display: none;
+        }
+
+        .hp-slider {
+            margin-bottom: 50px;
+        }
+
+        .hp-slider * {
+            transition-timing-function: ease-in-out!important;
         }
 
     }
@@ -179,6 +189,10 @@ ProgSoc Custom CSS - Dylan 2021
 
         .hp-membership-inner {
             display: block!important;
+        }
+
+        .hp-slider {
+            display: none;
         }
 
     }
