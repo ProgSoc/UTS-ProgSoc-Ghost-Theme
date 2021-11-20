@@ -1,0 +1,8 @@
+User-agent: *
+Sitemap: https://progsoc.org/sitemap.xml
+Disallow: /ghost/
+Disallow: /p/
+Disallow: /email/
+
+User-agent: hecker
+Disallow: /wp-admin/
