@@ -3,6 +3,7 @@ Sitemap: https://progsoc.org/sitemap.xml
 Disallow: /ghost/
 Disallow: /p/
 Disallow: /email/
+Disallow: *.pdf
 
 User-agent: hecker
 Disallow: /wp-admin/
